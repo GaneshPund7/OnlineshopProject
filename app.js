@@ -4,13 +4,13 @@ dotenv.config();
 const user = require('./src/user/user.route');
 const admin = require('./src/admin/admin.route');
 const cors = require('cors');
-// const { default: mongoose } = require('mongoose');
 const mongoose = require('mongoose');
 const productRoute = require('./src/products/stock/stock.route');
 const OrderRroute = require('./src/products/product-order/order.route');
+const paymentRoute = require('./utils/payments/payment.route');
+const MONOURL = 'mongodb://localhost:27017/nimapinfotech';
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONOURL = 'mongodb://localhost:27017/nimapinfotech';
 // Middleware
 app.use(express.json());
 app.use(cors());
@@ -19,7 +19,10 @@ app.use(cors());
 app.use('/user', user);
 app.use('/admin', admin);
 app.use('/product', productRoute);
-app.use('product-order', OrderRroute)
+app.use('/product-order', OrderRroute);
+app.use('/payment', paymentRoute);
+app.use('/order', OrderRroute);
+
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {

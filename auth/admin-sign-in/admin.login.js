@@ -3,7 +3,7 @@ const adminModal = require("../../src/admin/admin.modal");
 const { decryptpassword, createToken } = require("../../src/admin/admin.service");
 const seckretKey = "GaneshPund";
 
-async function verifyUser(req, res) {
+async function verifyAdminLogin(req, res) {
     const { email, password } = req.body;
 
     try {
@@ -23,4 +23,4 @@ async function verifyUser(req, res) {
     }
 }
 
-module.exports = verifyUser;
+module.exports = verifyAdminLogin;
