@@ -19,13 +19,14 @@ async function sendMail(email, password) {
             // to: email.join(","),
             to: email,
             from: "ganesh.pund@nimapinfotech.in",
-            subject: "Nimap Infotech OTP",
+            subject: "EStore OTP",
             html: `<p>Your user Name is ${email} and OTP is <b> ${password} </b></p>
             <p> dont share otp with any one </p>
             <p>thanks and regard </p>
-            <b style="color:red">Nimap Infotech</b>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Droste_Cacao_Alcalinise_blikje%2C_foto4.JPG/330px-Droste_Cacao_Alcalinise_blikje%2C_foto4.JPG"></img>`,
+            <b style="color:red">EStore Online Shop</b>`
+           
         })
+        //  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Droste_Cacao_Alcalinise_blikje%2C_foto4.JPG/330px-Droste_Cacao_Alcalinise_blikje%2C_foto4.JPG"></img>`,
     } catch (error) {
         console.log("Mail not send", error.message);
     }

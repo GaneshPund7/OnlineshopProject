@@ -1,7 +1,7 @@
 const { sendMail } = require('../../utils/nodemailer/sendMail');
 const userSchema = require('./user.modal');
 const otpSchema = require('../../auth/otp/otp.modal');
-const { encryptPassword, createToken, verifyToken } = require('./user.service');
+const { encryptPassword, createToken } = require('./user.service');
 const randomstring = require('randomstring');
 const jwt = require('jsonwebtoken');
 const seckretKey = "GaneshBhai"

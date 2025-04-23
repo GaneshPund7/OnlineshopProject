@@ -3,7 +3,8 @@ const orderSchema = require('./order.modal');
 const  productSchema = require('../stock/stock.modal');
 async function getProduct(req, res) {
     try {
-        const get_prodcuts = await orderSchema.find();
+        const get_prodcuts = await productSchema.find().populate('productdetails');
+
         return res.status(200).json({ message: "Data fetch successfuly..!", get_prodcuts });
     } catch (error) {
         return res.status(404).json("Somthing went wrong..!")
@@ -14,7 +15,7 @@ async function getProduct(req, res) {
   async function getProductByID(req, res) {
   try {
     const productId = req.params.id;
-    const product = await orderSchema.findById(productId);
+    const product = await productSchema.findById(productId).populate()
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
@@ -25,9 +26,9 @@ async function getProduct(req, res) {
 }
 
 
-// async function addProdcut(req, res) {
+// async function addOrder(req, res) {
 //     try {
-//             const savedOrder = await orderSchema.create(req.body);
+//             const savedOrder = await productSchema.findById(req.body);
 //             res.status(201).json({ message: "Product order created", order: savedOrder });     
 //     } catch (error) {
 //         res.status(500).json({ message: "Failed to create order", error });
